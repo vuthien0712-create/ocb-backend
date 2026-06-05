@@ -17,7 +17,7 @@ app.get('/api/taichinh/:ma_tctd', async (req, res) => {
     const maTCTD = req.params.ma_tctd; 
     try {
         const query = `
-            SELECT t.Ten_To_Chuc, t.Giay_Phep, c.Ky_Bao_Cao, c.Von_Dieu_Le, c.Tong_Tai_San, c.Loi_Nhuan_Sau_Thue 
+            SELECT t.Ten_To_Chuc, t.Giay_Phep, t.Noi_Dung_Hoat_Dong, c.Ky_Bao_Cao, c.Von_Dieu_Le, c.Tong_Tai_San, c.Loi_Nhuan_Sau_Thue 
             FROM TCTD t JOIN TAI_CHINH c ON t.Ma_TCTD = c.Ma_TCTD
             WHERE t.Ma_TCTD = $1 ORDER BY c.Ky_Bao_Cao DESC LIMIT 1;
         `;
